@@ -3,6 +3,8 @@ import Sheet from './components/Sheet'
 import css from './App.css'
 import './locales'
 
+console.log('css', css)
+
 /**
  * Responsible as a Container component to send properties down to Sheet
  * Sheet should be a dump component. SheetApp works as a top a level layout
@@ -10,6 +12,7 @@ import './locales'
  */
 class SheetApp extends Component {
   render() {
+    console.log('css.container', css.container)
     return (
       <div className={css.container}>
         <Sheet />
