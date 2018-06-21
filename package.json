@@ -8,9 +8,16 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
+    "localize": "yarn extract-pot && d2-i18n-generate -n d2-tabular -p ./i18n/ -o ./src/locales/",
+    "start": "yarn localize && react-scripts start",
+    "build": "yarn localize && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn extract-pot && git add ./i18n/"
+    }
   }
 }
