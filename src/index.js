@@ -3,4 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import { DIR_LTR, DIR_RTL } from './constants'
+
+// ReactDOM.render(<App dir={DIR_RTL} />, document.getElementById('root'))
+ReactDOM.render(<App dir={DIR_LTR} />, document.getElementById('root'))

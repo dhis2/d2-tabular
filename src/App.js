@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import Sheet from './components/Sheet'
-import css from './App.css'
+import { DIR_LTR, DIR_RTL } from './constants'
+
+import s from './styles.css'
 import './locales'
 
-console.log('css', css)
+function setDirection(dir) {
+  document.documentElement.setAttribute('dir', dir)
+}
 
 /**
  * Responsible as a Container component to send properties down to Sheet
@@ -11,11 +15,26 @@ console.log('css', css)
  * component for the Sheet
  */
 class SheetApp extends Component {
+  componentDidMount() {
+    setDirection(this.props.dir)
+  }
+
+  componentDidUpdate() {
+    setDirection(this.props.dir)
+  }
+
   render() {
-    console.log('css.container', css.container)
+    let { width, height, dir } = this.props
+    width = width || 800
+    height = height || 500
+    const style = {
+      width,
+      height
+    }
+
     return (
-      <div className={css.container}>
-        <Sheet />
+      <div className={s.container} style={style}>
+        <Sheet dir={dir} width={width} height={height} />
       </div>
     )
   }
