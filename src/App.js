@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
+import cx from 'classnames'
 import Sheet from './components/Sheet'
-import { DIR_LTR, DIR_RTL } from './constants'
+import { scrollElmToX, scrollElmToY } from './helpers'
+import { DIR_RTL } from './constants'
 
 import s from './styles.css'
 import './locales'
-
-function setDirection(dir) {
-  document.documentElement.setAttribute('dir', dir)
-}
 
 /**
  * Responsible as a Container component to send properties down to Sheet
@@ -15,12 +13,26 @@ function setDirection(dir) {
  * component for the Sheet
  */
 class SheetApp extends Component {
-  componentDidMount() {
-    setDirection(this.props.dir)
+  state = {
+    loaded: false
   }
 
-  componentDidUpdate() {
-    setDirection(this.props.dir)
+  scrollToX = position => {
+    if (!this.elmSheet) {
+      setTimeout(() => scrollElmToX(this.elmSheet, position), 750)
+    }
+  }
+
+  scrollY = position => {
+    if (!this.elmSheet) {
+      setTimeout(() => scrollElmToY(this.elmSheet, position), 750)
+    }
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ loaded: true })
+    }, 1000)
   }
 
   render() {
@@ -32,9 +44,25 @@ class SheetApp extends Component {
       height
     }
 
+    // TODO show loader, if sheet is loading
+
     return (
-      <div className={s.container} style={style}>
-        <Sheet dir={dir} width={width} height={height} />
+      <div
+        ref={c => this.elmSheet = c}
+        dir="ltr"
+        style={style}
+        className={cx(s.container, {
+          [s.rtl]: dir === DIR_RTL,
+          [s.visible]: this.state.loaded
+        })}
+      >
+        <Sheet
+          dir={dir}
+          width={width}
+          height={height}
+          scrollToX={this.scrollToX}
+          scrollToY={this.scrollToY}
+        />
       </div>
     )
   }
