@@ -24,4 +24,9 @@
 
 .item.rtl {
   font-size: 18px;
+  border-left: 0;
+  border-right: 1px solid var(--border-color);
+}
+.item.rtl:last-child {
+  border-right: 0;
 }
