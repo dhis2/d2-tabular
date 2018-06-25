@@ -13,7 +13,7 @@ export default class Sheet extends React.Component {
     },
     cols: {
       start: 0,
-      end: 20
+      end: 200
     },
     active: {
       row: [-1],
