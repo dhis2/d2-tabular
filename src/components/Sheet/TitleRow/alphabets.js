@@ -1,4 +1,4 @@
-import { DIR_LTR, DIR_RTL } from '../../../constants'
+import { DIR_LTR, DIR_RTL } from 'helpers'
 
 export const ALPHABETS = {
   [DIR_LTR]: [

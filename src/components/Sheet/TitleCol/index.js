@@ -1,10 +1,10 @@
 import React from 'react'
 import cx from 'classnames'
 import s from './styles.css'
-import { DIR_RTL } from '../../../constants'
+import { DIR_RTL, toEastArabicNum } from 'helpers'
 
 function Item({ label }) {
-  return <div className={s.item}>{label}</div>
+  return <div className={s.item}>{toEastArabicNum(label)}</div>
 }
 
 export default class TitleRow extends React.Component {
@@ -18,7 +18,6 @@ export default class TitleRow extends React.Component {
 
     return (
       <div
-        ref={c => (this.elm = c)}
         style={style}
         className={cx(s.container, {
           [s.rtl]: dir === DIR_RTL

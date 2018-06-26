@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import cx from 'classnames'
 import Sheet from './components/Sheet'
 import { scrollElmToX, scrollElmToY } from './helpers'
-import { DIR_RTL } from './constants'
+import { DIR_RTL } from './helpers/constants'
 
 import s from './styles.css'
 import './locales'

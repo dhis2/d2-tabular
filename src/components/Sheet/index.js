@@ -1,7 +1,7 @@
 import React from 'react'
 import TitleRow from './TitleRow'
 import TitleCol from './TitleCol'
-import { getRowTitles, getColTitles } from './helpers'
+import {DIR_RTL, getRowTitles, getColTitles} from 'helpers'
 
 const DEFAULT_COL_WIDTH = 100
 export default class Sheet extends React.Component {
@@ -36,19 +36,25 @@ export default class Sheet extends React.Component {
     const { titles } = this.state
     const view = []
 
+    const width = titles.rows.length * DEFAULT_COL_WIDTH
+
     view.push(
       <TitleRow
-        key={`sheet-title-rows`}
+        key={`st-rows`}
         dir={dir}
         titles={titles.rows}
+        width={width}
+        defaultColWidth={DEFAULT_COL_WIDTH}
         scrollToX={this.props.scrollToX}
       />
     )
 
     view.push(
       <TitleCol
-        key={`sheet-title-cols`}
+        key={`st-cols`}
+        dir={dir}
         titles={titles.cols}
+        left={dir === DIR_RTL ? width : 0}
       />
     )
 
