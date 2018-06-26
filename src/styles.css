@@ -3,10 +3,10 @@
 }
 
 .container {
+  position: relative;
   visibility: hidden;
   border: 1px solid var(--border-color);
   overflow: scroll;
-  position: relative;
   margin: 100px auto;
   display: flex;
   flex-wrap: wrap;

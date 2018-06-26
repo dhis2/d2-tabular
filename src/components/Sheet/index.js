@@ -1,19 +1,18 @@
 import React from 'react'
 import TitleRow from './TitleRow'
+import TitleCol from './TitleCol'
+import { getRowTitles, getColTitles } from './helpers'
 
+const DEFAULT_COL_WIDTH = 100
 export default class Sheet extends React.Component {
   state = {
     stats: {
-      rows: 5,
+      rows: 15,
       cols: 20
     },
-    rows: {
-      start: 0,
-      end: 5
-    },
-    cols: {
-      start: 0,
-      end: 200
+    titles: {
+      rows: [],
+      cols: []
     },
     active: {
       row: [-1],
@@ -21,19 +20,35 @@ export default class Sheet extends React.Component {
     }
   }
 
+  componentWillMount() {
+    const { dir } = this.props
+    const { stats: { rows, cols } } = this.state
+    this.setState({
+      titles: {
+        rows: getRowTitles(0, rows, dir),
+        cols: getColTitles(0, cols, dir)
+      }
+    })
+  }
+
   render() {
-    const { width, dir } = this.props
-    const { scrollToX } = this.props
-    const { cols } = this.state
+    const { dir } = this.props
+    const { titles } = this.state
     const view = []
 
     view.push(
       <TitleRow
-        key={`sheet-title-row`}
+        key={`sheet-title-rows`}
         dir={dir}
-        cols={cols}
-        width={width}
-        scrollToX={scrollToX}
+        titles={titles.rows}
+        scrollToX={this.props.scrollToX}
+      />
+    )
+
+    view.push(
+      <TitleCol
+        key={`sheet-title-cols`}
+        titles={titles.cols}
       />
     )
 

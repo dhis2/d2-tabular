@@ -1,0 +1,36 @@
+:root {
+  --border-color: #d5d5d5;
+  --active: #efefef;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 37px;
+  width: 50px;
+  line-height: 36px;
+  background-color: #f1f1f1;
+}
+
+.item {
+  font-family: Roboto, sans-serif;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  font-weight: 300;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.item.rtl {
+  font-family: 'Amiri', serif;
+  border-right: 0;
+  border-left: 1px solid var(--border-color);
+}
+
+.item.rtl:last-child {
+  border-right: 0;
+}
