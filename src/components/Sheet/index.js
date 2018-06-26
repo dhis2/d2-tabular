@@ -44,6 +44,8 @@ export default class Sheet extends React.Component {
     const { titles } = this.state
     const view = []
 
+    // TODO add empty corner on right-top or left-top based based on dir
+
     view.push(
       <TitleRow
         key={`st-rows`}
@@ -63,6 +65,8 @@ export default class Sheet extends React.Component {
         left={this.titleColLeftPosition()}
       />
     )
+
+    // TODO add Grid
 
     return view
   }
