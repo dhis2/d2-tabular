@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderRow from './HeaderRow'
+import TitleRow from './TitleRow'
 
 export default class Sheet extends React.Component {
   state = {
@@ -28,8 +28,8 @@ export default class Sheet extends React.Component {
     const view = []
 
     view.push(
-      <HeaderRow
-        key={`sheet-header-row`}
+      <TitleRow
+        key={`sheet-title-row`}
         dir={dir}
         cols={cols}
         width={width}

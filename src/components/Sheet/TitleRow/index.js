@@ -35,9 +35,9 @@ function getTitles(start, end, dir) {
 }
 
 const COL_WIDTH = 100
-export default class HeaderRow extends React.Component {
+export default class TitleRow extends React.Component {
   componentDidMount() {
-    if (!this.elmHeader) {
+    if (!this.elm) {
       return
     }
 
@@ -46,7 +46,7 @@ export default class HeaderRow extends React.Component {
 
   positionHorz() {
     if (this.props.dir === DIR_RTL) {
-      const { width } = this.elmHeader.getBoundingClientRect()
+      const { width } = this.elm.getBoundingClientRect()
       this.props.scrollToX(width)
     } else {
       this.props.scrollToX(0)
@@ -66,7 +66,7 @@ export default class HeaderRow extends React.Component {
 
     return (
       <div
-        ref={c => (this.elmHeader = c)}
+        ref={c => (this.elm = c)}
         className={s.container}
         style={style}
       >
