@@ -21,16 +21,19 @@ export default class TitleRow extends React.Component {
 
   render() {
     const { dir, defaultColWidth, width, titles } = this.props
-    console.log('width', width, 'defaultColWidth', defaultColWidth)
     return (
-      <div ref={c => (this.elm = c)} style={{ width }} className={s.container}>
+      <div
+        ref={c => (this.elm = c)}
+        style={{ width }}
+        className={cx(s.container, {
+          [s.rtl]: dir === DIR_RTL
+        })}
+      >
         {titles.map(label => (
           <div
             key={`st-r-${label}`}
             style={{ width: defaultColWidth }}
-            className={cx(s.item, {
-              [s.rtl]: dir === DIR_RTL
-            })}
+            className={s.item}
           >
             {label}
           </div>

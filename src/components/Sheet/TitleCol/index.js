@@ -4,26 +4,22 @@ import s from './styles.css'
 import { DIR_RTL, toEastArabicNum } from 'helpers'
 
 function Item({ label }) {
-  return <div className={s.item}>{toEastArabicNum(label)}</div>
+  return <div className={s.item}>{label}</div>
 }
 
-export default class TitleRow extends React.Component {
+export default class TitleCol extends React.Component {
   render() {
-    const {
-      dir,
-      titles,
-      left
-    } = this.props
+    const { dir, titles, left } = this.props
+    const isRTL = dir === DIR_RTL
     const style = { left }
-
     return (
       <div
         style={style}
         className={cx(s.container, {
-          [s.rtl]: dir === DIR_RTL
+          [s.rtl]: isRTL
         })}
       >
-        {titles.map(label => <Item key={`row-${label}`} label={label} />)}
+        {titles.map(label => <Item key={`row-${label}`} label={isRTL ? toEastArabicNum(label) : label} />)}
       </div>
     )
   }

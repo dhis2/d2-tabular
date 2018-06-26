@@ -8,10 +8,20 @@
   z-index: 10;
   top: 0;
   height: 36px;
+  margin-left: 52px;
   line-height: 36px;
   border-bottom: 1px solid var(--border-color);
-  background-color: #f1f1f1;
+}
+.container.rtl {
+  margin-left: 0;
+}
+.container.rtl .item {
+  font-size: 18px;
+  border-left: 0;
   border-right: 1px solid var(--border-color);
+}
+.container.rtl .item:last-child {
+  border-right: 0;
 }
 
 .item {
@@ -21,18 +31,13 @@
   display: inline-block;
   text-align: center;
   font-weight: 500;
+  background-color: #f1f1f1;
   border-left: 1px solid var(--border-color);
 }
 
 .item:first-child {
   border-left: 0;
 }
-
-.item.rtl {
-  font-size: 18px;
-  border-left: 0;
-  border-right: 1px solid var(--border-color);
-}
-.item.rtl:last-child {
+.item:last-child {
   border-right: 0;
 }
