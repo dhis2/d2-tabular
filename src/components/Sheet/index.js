@@ -1,7 +1,7 @@
 import React from 'react'
-import TitleRow from './TitleRow'
-import TitleCol from './TitleCol'
-import { DIR_RTL, getRowTitles, getColTitles } from 'helpers'
+import MasterRow from './MasterRow'
+import MasterCol from './MasterCol'
+import { DIR_RTL, getMasterRowTitles, getMasterColTitles } from 'helpers'
 
 const DEFAULT_COL_WIDTH = 150
 export default class Sheet extends React.Component {
@@ -27,8 +27,8 @@ export default class Sheet extends React.Component {
     } = this.state
     this.setState({
       titles: {
-        rows: getRowTitles(0, cols, dir),
-        cols: getColTitles(0, rows, dir)
+        rows: getMasterRowTitles(0, cols, dir),
+        cols: getMasterColTitles(0, rows, dir)
       }
     })
   }
@@ -37,7 +37,7 @@ export default class Sheet extends React.Component {
     return this.state.titles.rows.length * DEFAULT_COL_WIDTH
   }
 
-  titleColLeftPosition() {
+  masterColLeftPosition() {
     return this.props.dir === DIR_RTL ? this.width() : 0
   }
 
@@ -49,7 +49,7 @@ export default class Sheet extends React.Component {
     // TODO add empty corner on right-top or left-top based based on dir
 
     view.push(
-      <TitleRow
+      <MasterRow
         key={`st-rows`}
         dir={dir}
         titles={titles.rows}
@@ -60,11 +60,11 @@ export default class Sheet extends React.Component {
     )
 
     view.push(
-      <TitleCol
+      <MasterCol
         key={`st-cols`}
         dir={dir}
         titles={titles.cols}
-        left={this.titleColLeftPosition()}
+        left={this.masterColLeftPosition()}
       />
     )
 

@@ -7,7 +7,7 @@ function Item({ label }) {
   return <div className={s.item}>{label}</div>
 }
 
-export default class TitleCol extends React.Component {
+export default class MasterCol extends React.Component {
   render() {
     const { dir, titles, left } = this.props
     const isRTL = dir === DIR_RTL

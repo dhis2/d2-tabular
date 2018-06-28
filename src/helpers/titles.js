@@ -1,10 +1,9 @@
 import { ALPHABETS } from './alphabets'
 import { DIR_RTL } from 'helpers'
 
-function generateRowTitles(start, end, list, dir) {
+function generateMasterRowTitles(start, end, list) {
   const result = []
   const len = list.length
-  const max = len ** len
   let title
 
   for (let i = start; i < end; i += 1) {
@@ -21,13 +20,13 @@ function generateRowTitles(start, end, list, dir) {
   return result
 }
 
-export function getRowTitles(start, end, dir) {
+export function getMasterRowTitles(start, end, dir) {
   const letters = ALPHABETS[dir]
-  let list = generateRowTitles(start, end, letters, dir)
+  let list = generateMasterRowTitles(start, end, letters, dir)
   return dir === DIR_RTL ? list.reverse() : list
 }
 
-export function getColTitles(start, end, dir) {
+export function getMasterColTitles(start, end) {
   const list = []
 
   for (let i = start; i < end; i += 1) {

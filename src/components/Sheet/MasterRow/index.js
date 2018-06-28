@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { DIR_RTL } from 'helpers'
 import s from './styles.css'
 
-export default class TitleRow extends React.Component {
+export default class MasterRow extends React.Component {
   componentDidMount() {
     if (this.elm) {
       this.sheetScrollX()
