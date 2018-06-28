@@ -1,5 +1,5 @@
 import { ALPHABETS } from './alphabets'
-import {DIR_RTL} from 'helpers'
+import { DIR_RTL } from 'helpers'
 
 function generateRowTitles(start, end, list, dir) {
   const result = []

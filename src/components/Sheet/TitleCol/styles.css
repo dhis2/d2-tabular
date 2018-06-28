@@ -15,12 +15,14 @@
   padding-top: 36px;
   background-color: var(--bg-color);
   border-right: 1px solid var(--border-color);
+  font-family: "Roboto", serif;
 }
 .container.rtl {
   left: inherit;
   right: 0;
   border-right: 0;
   border-left: 1px solid var(--border-color);
+  font-family: "Noto Naskh Arabic", serif;
 }
 
 .item {
@@ -35,7 +37,7 @@
   background-color: var(--bg-color);
 }
 
-.arabic .item {
-  font-family: 'Amiri', serif;
+.container.rtl .item {
+  font-size: 18px;
+  font-family: "Noto Naskh Arabic", serif;
 }
-

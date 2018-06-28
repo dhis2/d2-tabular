@@ -19,7 +19,12 @@ export default class TitleCol extends React.Component {
           [s.rtl]: isRTL
         })}
       >
-        {titles.map(label => <Item key={`row-${label}`} label={isRTL ? toEastArabicNum(label) : label} />)}
+        {titles.map(label => (
+          <Item
+            key={`col-${label}`}
+            label={isRTL ? toEastArabicNum(label) : label}
+          />
+        ))}
       </div>
     )
   }

@@ -19,6 +19,7 @@
   font-size: 18px;
   border-left: 0;
   border-right: 1px solid var(--border-color);
+  font-family: "Noto Naskh Arabic", serif;
 }
 .container.rtl .item:last-child {
   border-right: 0;

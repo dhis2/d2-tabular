@@ -1,7 +1,7 @@
 import React from 'react'
 import TitleRow from './TitleRow'
 import TitleCol from './TitleCol'
-import {DIR_RTL, getRowTitles, getColTitles} from 'helpers'
+import { DIR_RTL, getRowTitles, getColTitles } from 'helpers'
 
 const DEFAULT_COL_WIDTH = 150
 export default class Sheet extends React.Component {
@@ -22,7 +22,9 @@ export default class Sheet extends React.Component {
 
   componentWillMount() {
     const { dir } = this.props
-    const { stats: { rows, cols } } = this.state
+    const {
+      stats: { rows, cols }
+    } = this.state
     this.setState({
       titles: {
         rows: getRowTitles(0, cols, dir),

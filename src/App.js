@@ -48,7 +48,7 @@ class SheetApp extends Component {
 
     return (
       <div
-        ref={c => this.elmSheet = c}
+        ref={c => (this.elmSheet = c)}
         dir="ltr"
         style={style}
         className={cx(s.container, {
