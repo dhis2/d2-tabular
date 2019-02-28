@@ -1,5 +1,7 @@
 # D2 Tabular
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhis2/d2-tabular.svg)](https://greenkeeper.io/)
+
 Sheet component for D2 Apps
 
 ## Documentation
